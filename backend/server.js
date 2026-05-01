@@ -13,6 +13,9 @@ app.use(express.json());
 /**
  * 🔥 HEALTHCHECK ROUTES (VERY IMPORTANT)
  */
+app.get('/api/health', (req, res) => {
+  res.status(200).send('OK');
+});
 
 // Root route (Railway checks this)
 app.get('/', (req, res) => {
@@ -20,14 +23,10 @@ app.get('/', (req, res) => {
 });
 
 // Railway may check this too
-app.get('/health', (req, res) => {
-  res.status(200).json({ status: "ok" });
-});
+// app.get('/health', (req, res) => {
+//   res.status(200).json({ status: "ok" });
+// });
 
-// Your API health route
-app.get('/api/health', (req, res) => {
-  res.json({ status: 'ok', timestamp: new Date().toISOString() });
-});
 
 /**
  * 🔥 API ROUTES
