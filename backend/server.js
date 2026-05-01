@@ -9,6 +9,10 @@ const PORT = process.env.PORT || 5000;
 app.use(cors({ origin: '*', credentials: true }));
 app.use(express.json());
 
+app.get('/', (req, res) => {
+  res.status(200).send('OK');
+});
+
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/projects', require('./routes/projects'));
 app.use('/api/tasks', require('./routes/tasks'));
