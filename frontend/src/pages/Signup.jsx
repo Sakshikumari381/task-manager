@@ -26,7 +26,7 @@ export default function Signup() {
     <div className="auth-page">
       <div className="auth-card">
         <div className="auth-logo">
-          {/* <div className="logo-icon">⚡</div> */}
+          <div className="logo-icon">⚡</div>
           <h1>TaskFlow</h1>
         </div>
         <h2 className="auth-title">Create account</h2>

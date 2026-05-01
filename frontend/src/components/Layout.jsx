@@ -39,7 +39,7 @@ export default function Layout() {
     <div className="layout">
       <aside className="sidebar">
         <div className="sidebar-logo">
-          
+          <div className="logo-icon">⚡</div>
           <h1>TaskFlow</h1>
         </div>
         <nav className="sidebar-nav">

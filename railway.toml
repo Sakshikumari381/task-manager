@@ -1,14 +1,10 @@
 [build]
 builder = "NIXPACKS"
 buildCommand = "npm install --prefix backend && npm install --prefix frontend && npm run build --prefix frontend"
-watchPatterns = ["backend/**", "frontend/src/**"]
 
 [deploy]
 startCommand = "node backend/server.js"
 healthcheckPath = "/api/health"
-healthcheckTimeout = 100
+healthcheckTimeout = 300
 restartPolicyType = "ON_FAILURE"
-restartPolicyMaxRetries = 10
-
-[[services]]
-name = "taskflow"
+restartPolicyMaxRetries = 3
