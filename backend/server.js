@@ -59,20 +59,21 @@ if (frontendBuild) {
 /**
  * 🔥 START SERVER (CRITICAL FIX)
  */
-app.listen(PORT, '0.0.0.0', async () => {
-  console.log(`🚀 TaskFlow running on port ${PORT}`);
 
-  // Auto seed demo data
-  try {
-    const db = require('./db');
-    const { count } = db.prepare('SELECT COUNT(*) as count FROM users').get();
-
-    if (count === 0) {
-      require('./seed');
-    }
-  } catch (e) {
-    console.error('Seed error:', e.message);
-  }
+  const server = app.listen(PORT, '0.0.0.0', () => {
+  console.log(`🚀 Server running on ${PORT}`);
 });
+
+// Auto seed demo data
+try {
+  const db = require('./db');
+  const { count } = db.prepare('SELECT COUNT(*) as count FROM users').get();
+
+  if (count === 0) {
+    require('./seed');
+  }
+} catch (e) {
+  console.error('Seed error:', e.message);
+}
 
 module.exports = app;
