@@ -18,6 +18,10 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
 
+app.get('/', (req, res) => {
+  res.send('Server is running ');
+});
+
 // Serve frontend
 const possibleFrontend = [
   path.join(__dirname, '../frontend/dist'),
